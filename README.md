@@ -1,127 +1,176 @@
 <!DOCTYPE html>
+
 <head>
+<link href='https://fonts.googleapis.com/css?family=Poller+One' rel='stylesheet' type='text/css'>
 <script src="/assets/jquery.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 <style>
-body {
-  font-family: helvetica, sans-serif;
-  margin: 0 auto;
-  max-width: 600px;
-  background: rgba(0,15,15,1);
-}
-div {
-  height: 450px;
-  background-size: cover;
+
+.robot {
   position: relative;
-  margin: 40px 0 0 0;
-  border-radius: 12px;
-}
-h1 {
-  font-family: 'Lobster', cursive;
-  text-align: center;
-  font-size: 60px;
-  color: #aabbaa;
-  margin: 60px 0 0 0;
-}
-h2 {
-  font-family: 'Lobster', cursive;
-  text-align: center;
-  color: #baddbb;
-  margin: 0px 0 70px 0;
-}
-p {
-  color: rgba(255,255,255,1);
-  background: black;
-  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
-  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
-  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
-  padding: 10px;
-  line-height: 28px;
-  text-align: justify;
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  height: 30px;
-  transition: height .5s;
-  -webkit-transition: height .5s;
-  -moz-transition: height .5s;
+  left: 200px;
 }
 
-small {
-  opacity: 0;
+.beep {
+  width: 5px;
+  height: 0;
+  border: 5px solid transparent;
+  border-top: 10px solid #777;
+  border-bottom: 80px solid #888;
+  position: relative;
+  left: 140px;
 }
 
-.show-description p {
+@keyframes blink {
+  50% {
+    background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    background: -webkit-radial-gradient(circle, red 15%, transparent 40%), #cc5;
+  }
+}
+@-moz-keyframes blink {
+  50% {
+    background: -moz-radial-gradient(circle, red 15%, transparent 40%), #cc5;
+  }
+}
+.laser {
+  animation: blink .5s infinite;
+  -webkit-animation: blink .5s infinite;
+  -moz-animation: blink .5s infinite;
+}
+.brain {
+  background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
+  background: -moz-radial-gradient(circle, white 15%, transparent 40%), #cc5; 
+  background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #cc5;
+  background-size: 75px 150px;
   height: 150px;
+  width: 150px;
+  border-radius: 60px 60px 10px 10px;
+  border-bottom: 40px solid #666;
+  position: relative;
+  left: 70px;
+}
+.torso {
+  height: 0;
+  width: 140px;
+  border-top: 300px solid #bc6;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-radius: 20px 20px 100px 100px;
+}
+.left {
+  font-family: 'Poller One', verdana, arial, sans-serif;
+  font-weight: bold;
+  font-size: 250px;
+  color: #666;
+  transform: rotate(200deg);
+  -webkit-transform: rotate(200deg);
+  -moz-transform: rotate(200deg);
+  position: relative;
+  top: -320px;
+  left: -190px;
+  z-index: -1;
+}
+.right {
+  font-family: 'Poller One', verdana, arial, sans-serif;
+  font-weight: bold;
+  font-size: 250px;
+  color: #666;
+  transform: scaleY(-1) rotate(20deg);
+  -webkit-transform: scaleY(-1) rotate(20deg);
+  -moz-transform: scaleY(-1) rotate(20deg);
+  position: relative;
+  top: -620px;
+  left: 190px;
+  z-index: -1;
+}
+.foot {
+  height: 40px;
+  width: 40px;
+  background: #ccc;
+  border-radius: 40px;
+  border: 15px solid #999;
+  position: relative;
+  left: 110px;
+  top: -10px;
+  z-index: -1;
 }
 
-.show-description small {
-  opacity: 1;
+@keyframes dance {
+  from {
+    left: 800px;
+  }
+}
+@-webkit-keyframes dance {
+  from {
+   left: 800px;
+  }
+}
+@-moz-keyframes dance {
+  from {
+    left: 800px;
+  }
 }
 
-.first{
-  background-image: url("https://imgur.com/2AooyRE.jpg");
-}
-.second{
-  background-image: url("https://imgur.com/PXe0mjh.jpg");
-}
-.third{
-  background-image: url("https://imgur.com/rhpL0TA.jpg");
-}
-.price {
-  float: right;
-}
-@media (max-width: 500px) {
-  h1 {
-    font-size: 50px;
-    margin-top: 20px;
-    line-height: 40px;
-  }
-  h2 {
-    font-size: 20px;
-    margin: 20px 0 30px 0;
-  }
-  div {
-    margin: 20px 12px 0 12px;
-    height: 200px;
+  img{
+    animation: dance 4s infinite;
+    -webkit-animation: dance 4s infinite;
+    -moz-animation: dance 4s infinite;
+    position: absolute;
+    top: 200px;
+    left: 400px;
+    }
     
-  }
-  p {
-    font-size: 15px;
-    line-height: 24px;
-  }
-  small {
-    font-size: 16px;
-  }
 }
-
 </style>
-
 </head>
 
 <body>
-<h1>Phearlzz Foot wears</h1>
-<h2>Walk! Strut! Slay!</h2>
-<div class="first show description">
-  <p>Active Harmony shoe  <span class="price">#10,000</span><br />
-  <small>Female pink active harmony shoe available from size 37-41. Look good exercising and also hanging out with friends or going on a date. </small></p>
+
+<div class="robot">
+  <div class="beep"></div>
+  <div class="brain"></div>
+  <div class="torso">
+    <div class="left">j</div>
+    <div class="right">j</div>
+  </div>
+  <div class="foot"></div>
 </div>
 
-<div class="second show description">
-  <p>Stilettos <span class="price">#10,000</span><br />
-  <small>Stilettos Womens Shoes 12CM High Heels  Purple Shoes Pumps Women Heels Sexy Pointed Toe.</small></p>
-</div>
-  
-<div class="third show description">
-  <p>Sneakers <span class="price">#15,000</span><br />
-  <small>New Balance will show off its running shoe with the 3D-printed midsole. Sizes available: 37,38,39,40,41.   </small></p>
-</div>
+<button class="flash">laser eyes on/off</button>
+<button class="color">change color!</button>
+<button class="moves">break/dance!</button>
+
+<img src="/assets/dance_cotter.gif">
 
 <script>
-alert("Thank you for choosing Phearlzz footwears!")
-  $('div').on('click', function() {
-      $(this).toggleClass('show-description');
-  });
-</script>
+// When eyes button is clicked, toggle laser class on brain
+$(".flash").click(function() {
+  $(".brain").toggleClass('laser');
+});
 
+// When color button is clicked...
+$(".color").click(function() {
+  // assign each named color a random number 0-255
+  var red = Math.floor(Math.random() * 255);
+  var green = Math.floor(Math.random() * 255);
+  var blue = Math.floor(Math.random() * 255);
+  
+  // Generate an RGBA value from red, green, and blue
+  var randomRGBA = 'rgba('+red+','+green+','+blue+',1)';
+  
+  // and change the body's background to our random color
+  $("body").css("background", randomRGBA);
+  
+  //Display the three values in an alert window
+ // alert(randomRGBA);
+});
+
+$(".moves").click(function() {
+  $("img").toggle();
+});
+
+</script>
 </body>
